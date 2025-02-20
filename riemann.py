@@ -1,11 +1,11 @@
 import numpy as np
 
-def left_endpoint(x_vals, func):
+def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     width = np.diff(x_vals)
     height = func(x_vals[:-1])
     return np.sum(width * height)
 
-def trapezoid(x_vals, func):
+def trapezoid(x_vals: np.ndarray, func:np.ufunc) -> float:
     widths = np.diff(x_vals)
     heights = (func(x_vals[:-1]) + func(x_vals[1:])) / 2
     return np.sum(widths * heights)
